@@ -51,6 +51,45 @@ fix: 期限切れタスクが削除できないバグを修正
 
 ---
 
+## デプロイ先
+
+| 環境 | URL |
+|---|---|
+| 本番（GitHub Pages） | https://fc-kawaguchi.github.io/task-board/ |
+| ローカル開発 | http://localhost:5173 |
+
+デプロイは以下のコマンド一発で完了する（`dist/` をビルドして `gh-pages` ブランチへプッシュ）。
+
+```
+npm run deploy
+```
+
+---
+
+## 技術スタック
+
+| カテゴリ | 技術 |
+|---|---|
+| フレームワーク | React 18 |
+| ビルドツール | Vite 6 |
+| 言語 | JavaScript (JSX) |
+| スタイリング | Plain CSS（CSS Modules 不使用） |
+| 状態管理 | React `useState` / `useEffect`（外部ライブラリなし） |
+| データ永続化 | `localStorage` |
+| デプロイ | `gh-pages` パッケージ → GitHub Pages |
+
+---
+
+## コンポーネント命名規約
+
+- **ファイル名・コンポーネント名**: PascalCase（例: `App.jsx`, `TaskItem.jsx`）
+- **CSS ファイル**: コンポーネントと同名（例: `App.css`）
+- **イベントハンドラ関数**: `handle〇〇` または動詞 + 対象の camelCase（例: `handleKeyDown`, `addTask`, `toggleTask`）
+- **state 変数**: camelCase の名詞（例: `tasks`, `inputText`）
+- **定数（モジュールスコープ）**: UPPER_SNAKE_CASE（例: `STORAGE_KEY`）
+
+---
+
 ## 開発ガイドライン
 
 - 新機能は小さな単位で実装し、その都度コミット＆プッシュする。
